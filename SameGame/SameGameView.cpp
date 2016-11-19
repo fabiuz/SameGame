@@ -23,6 +23,16 @@ IMPLEMENT_DYNCREATE(CSameGameView, CView)
 
 BEGIN_MESSAGE_MAP(CSameGameView, CView)
 	ON_WM_LBUTTONDOWN()
+	ON_COMMAND(ID_LEVEL_3CORES, &CSameGameView::OnLevel3cores)
+	ON_COMMAND(ID_LEVEL_4CORES, &CSameGameView::OnLevel4cores)
+	ON_COMMAND(ID_LEVEL_5CORES, &CSameGameView::OnLevel5cores)
+	ON_COMMAND(ID_LEVEL_6CORES, &CSameGameView::OnLevel6cores)
+	ON_COMMAND(ID_LEVEL_7CORES, &CSameGameView::OnLevel7cores)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_3CORES, &CSameGameView::OnUpdateLevel3cores)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_4CORES, &CSameGameView::OnUpdateLevel4cores)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_5CORES, &CSameGameView::OnUpdateLevel5cores)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_6CORES, &CSameGameView::OnUpdateLevel6cores)
+	ON_UPDATE_COMMAND_UI(ID_LEVEL_7CORES, &CSameGameView::OnUpdateLevel7cores)
 END_MESSAGE_MAP()
 
 // CSameGameView construction/destruction
@@ -159,6 +169,40 @@ void CSameGameView::ResizeWindow()
 	GetParentFrame()->MoveWindow(&rcWindow);
 }
 
+/*
+	Quando o usuário clicar no menu, conforme a opção do menu.
+	A quantidade de cores alterará.
+*/
+void CSameGameView::setColorCount(int numColors)
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the number of colors
+	pDoc->SetNumColors(numColors);
+	//  Force the view to redraw
+	Invalidate();
+	UpdateWindow();
+}
+
+/*
+	Os eventos de que começam com 'OnUpdateLeve' 
+	ao serem chamados dentro da função haverá uma chamada
+	para este comando.
+*/
+void CSameGameView::setAtivarDesativarMenu(CCmdUI *pCmdUI, int numColors) {
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Set the check if this is the right level
+	pCmdUI->SetCheck(pDoc->GetNumColors() == numColors);
+}
+
+
 
 void CSameGameView::OnLButtonDown(UINT nFlags, CPoint point)
 {
@@ -197,3 +241,61 @@ void CSameGameView::OnLButtonDown(UINT nFlags, CPoint point)
 
 	CView::OnLButtonDown(nFlags, point);
 }
+
+void CSameGameView::OnLevel3cores()
+{
+	setColorCount(3);
+}
+
+
+void CSameGameView::OnLevel4cores()
+{
+	setColorCount(4);
+}
+
+
+void CSameGameView::OnLevel5cores()
+{
+	setColorCount(5);
+}
+
+
+void CSameGameView::OnLevel6cores()
+{
+	setColorCount(6);
+}
+
+void CSameGameView::OnLevel7cores()
+{
+	setColorCount(7);
+}
+
+void CSameGameView::OnUpdateLevel3cores(CCmdUI *pCmdUI)
+{
+	setAtivarDesativarMenu(pCmdUI, 3);
+}
+
+void CSameGameView::OnUpdateLevel4cores(CCmdUI *pCmdUI)
+{
+	setAtivarDesativarMenu(pCmdUI, 4);
+}
+
+void CSameGameView::OnUpdateLevel5cores(CCmdUI *pCmdUI)
+{
+	setAtivarDesativarMenu(pCmdUI, 5);
+}
+
+void CSameGameView::OnUpdateLevel6cores(CCmdUI *pCmdUI)
+{
+	setAtivarDesativarMenu(pCmdUI, 6);
+}
+
+void CSameGameView::OnUpdateLevel7cores(CCmdUI *pCmdUI)
+{
+	setAtivarDesativarMenu(pCmdUI, 7);
+}
+
+
+
+
+

@@ -37,6 +37,13 @@ public:
 	{
 		return m_board.GetRemainingCount();
 	}
+
+	/* Obter número de cores. */
+	int GetNumColors() { 
+		return m_board.GetNumColors(); 
+	}
+
+	void SetNumColors(int nColors);
 // Overrides
 public:
 	virtual BOOL OnNewDocument();

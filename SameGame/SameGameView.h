@@ -18,6 +18,8 @@ public:
 // Operations
 public:
 	void ResizeWindow();
+	void setColorCount(int numColors);
+	void setAtivarDesativarMenu(CCmdUI * pCmdUI, int numColors);
 
 // Overrides
 public:
@@ -39,8 +41,18 @@ protected:
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
-	virtual void OnInitialUpdate();
-	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	virtual void OnInitialUpdate();	
+	void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLevel3cores();
+	afx_msg void OnUpdateLevel3cores(CCmdUI *pCmdUI);
+	afx_msg void OnLevel4cores();
+	afx_msg void OnUpdateLevel4cores(CCmdUI *pCmdUI);
+	afx_msg void OnLevel5cores();
+	afx_msg void OnUpdateLevel5cores(CCmdUI *pCmdUI);
+	afx_msg void OnLevel6cores();
+	afx_msg void OnLevel7cores();
+	afx_msg void OnUpdateLevel7cores(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateLevel6cores(CCmdUI *pCmdUI);
 };
 
 #ifndef _DEBUG  // debug version in SameGameView.cpp

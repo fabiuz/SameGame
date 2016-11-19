@@ -67,6 +67,14 @@ void CSameGameDoc::Serialize(CArchive& ar)
 	}
 }
 
+void CSameGameDoc::SetNumColors(int nColors)
+{
+	//  Set the number of colors first
+	m_board.SetNumColors(nColors);
+	//  Then reset the game board
+	m_board.SetupBoard();
+}
+
 #ifdef SHARED_HANDLERS
 
 // Support for thumbnails
