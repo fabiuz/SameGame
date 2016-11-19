@@ -44,6 +44,8 @@ BOOL CSameGameDoc::OnNewDocument()
 
 	// TODO: add reinitialization code here
 	// (SDI documents will reuse this document)
+	//  Set (or reset) the game board
+	m_board.SetupBoard();
 
 	return TRUE;
 }

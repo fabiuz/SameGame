@@ -1,3 +1,7 @@
+Na parte dois iremos implementar a parte que desenha o tabuleiro na classe SameGameView.
+
+
+
 ================================================================================
     MICROSOFT FOUNDATION CLASS LIBRARY : SameGame Project Overview
 ===============================================================================

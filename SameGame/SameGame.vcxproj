@@ -181,6 +181,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SameGameBoard.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SameGame.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SameGameBoard.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="SameGame.cpp" />
     <ClCompile Include="SameGameDoc.cpp" />
@@ -205,6 +207,7 @@
     <ResourceCompile Include="SameGame.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="res\SameGame.rc2" />
   </ItemGroup>
   <ItemGroup>
@@ -214,4 +217,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="SameGame.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

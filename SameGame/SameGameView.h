@@ -17,6 +17,7 @@ public:
 
 // Operations
 public:
+	void ResizeWindow();
 
 // Overrides
 public:
@@ -37,6 +38,8 @@ protected:
 // Generated message map functions
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	virtual void OnInitialUpdate();
 };
 
 #ifndef _DEBUG  // debug version in SameGameView.cpp
