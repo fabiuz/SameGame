@@ -181,6 +181,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="OptionsDialog.h" />
     <ClInclude Include="SameGameBoard.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="OptionsDialog.cpp" />
     <ClCompile Include="SameGameBoard.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="SameGame.cpp" />

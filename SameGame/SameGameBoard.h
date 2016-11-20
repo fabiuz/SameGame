@@ -21,6 +21,12 @@ public:
 	int GetColumns(void) const { return m_nColumns; }
 	int GetRows(void) const { return m_nRows; }
 
+	/*  Accessor functions to set board size information */
+	void SetWidth(int nWidth) {	m_nWidth = (nWidth >= 3) ? nWidth : 3;	}
+	void SetHeight(int nHeight)	{	m_nHeight = (nHeight >= 3) ? nHeight : 3;}
+	void SetColumns(int nColumns) {	m_nColumns = (nColumns >= 5) ? nColumns : 5;}
+	void SetRows(int nRows)	{ m_nRows = (nRows >= 5) ? nRows : 5; }
+
 	/*  Function to delete the board and free memory */
 	void DeleteBoard(void);
 

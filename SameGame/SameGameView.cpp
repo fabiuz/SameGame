@@ -11,6 +11,8 @@
 
 #include "SameGameDoc.h"
 #include "SameGameView.h"
+#include "OptionsDialog.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -33,6 +35,8 @@ BEGIN_MESSAGE_MAP(CSameGameView, CView)
 	ON_UPDATE_COMMAND_UI(ID_LEVEL_5CORES, &CSameGameView::OnUpdateLevel5cores)
 	ON_UPDATE_COMMAND_UI(ID_LEVEL_6CORES, &CSameGameView::OnUpdateLevel6cores)
 	ON_UPDATE_COMMAND_UI(ID_LEVEL_7CORES, &CSameGameView::OnUpdateLevel7cores)
+	ON_COMMAND(ID_SETUP_BLOCKCOUNT, &CSameGameView::OnSetupBlockcount)
+	ON_COMMAND(ID_SETUP_BLOCKSIZE, &CSameGameView::OnSetupBlocksize)
 END_MESSAGE_MAP()
 
 // CSameGameView construction/destruction
@@ -299,3 +303,59 @@ void CSameGameView::OnUpdateLevel7cores(CCmdUI *pCmdUI)
 
 
 
+
+
+void CSameGameView::OnSetupBlockcount()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Create the options dialog
+	COptionsDialog dlg(true, this);
+	//  Set the row and column values
+	dlg.m_nValue1 = pDoc->GetRows();
+	dlg.m_nValue2 = pDoc->GetColumns();
+	//  Display the dialog
+	if (dlg.DoModal() == IDOK)
+	{
+		//  First delete the board
+		pDoc->DeleteBoard();
+		//  Get the user selected values
+		pDoc->SetRows(dlg.m_nValue1);
+		pDoc->SetColumns(dlg.m_nValue2);
+		//  Update the board
+		pDoc->SetupBoard();
+		//  Resize the view
+		ResizeWindow();
+	}
+}
+
+
+void CSameGameView::OnSetupBlocksize()
+{
+	//  First get a pointer to the document
+	CSameGameDoc* pDoc = GetDocument();
+	ASSERT_VALID(pDoc);
+	if (!pDoc)
+		return;
+	//  Create the options dialog
+	COptionsDialog dlg(false, this);
+	//  Set the width and height values
+	dlg.m_nValue1 = pDoc->GetWidth();
+	dlg.m_nValue2 = pDoc->GetHeight();
+	//  Display the dialog
+	if (dlg.DoModal() == IDOK)
+	{
+		//  First delete the board
+		pDoc->DeleteBoard();
+		//  Get the user selected values
+		pDoc->SetWidth(dlg.m_nValue1);
+		pDoc->SetHeight(dlg.m_nValue2);
+		//  Update the board
+		pDoc->SetupBoard();
+		//  Resize the view
+		ResizeWindow();
+	}
+}

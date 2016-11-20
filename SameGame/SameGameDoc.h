@@ -23,10 +23,17 @@ public:
 		return m_board.GetBoardSpace(row, col);
 	}
 	void SetupBoard(void) { m_board.SetupBoard(); }
+
 	int GetWidth(void) { return m_board.GetWidth(); }
 	int GetHeight(void) { return m_board.GetHeight(); }
 	int GetColumns(void) { return m_board.GetColumns(); }
 	int GetRows(void) { return m_board.GetRows(); }
+
+	void SetWidth(int nWidth) { m_board.SetWidth(nWidth); }
+	void SetHeight(int nHeight) { m_board.SetHeight(nHeight); }
+	void SetColumns(int nColumns) { m_board.SetColumns(nColumns); }
+	void SetRows(int nRows) { m_board.SetRows(nRows); }
+
 	void DeleteBoard(void) { m_board.DeleteBoard(); }
 	bool IsGameOver() { return m_board.IsGameOver(); }
 	int DeleteBlocks(int row, int col)

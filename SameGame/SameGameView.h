@@ -53,6 +53,8 @@ public:
 	afx_msg void OnLevel7cores();
 	afx_msg void OnUpdateLevel7cores(CCmdUI *pCmdUI);
 	afx_msg void OnUpdateLevel6cores(CCmdUI *pCmdUI);
+	afx_msg void OnSetupBlockcount();
+	afx_msg void OnSetupBlocksize();
 };
 
 #ifndef _DEBUG  // debug version in SameGameView.cpp
